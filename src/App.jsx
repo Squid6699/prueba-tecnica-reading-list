@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css"
 import Book from "./moks/books.json"
 import Header from "./components/Header";
@@ -8,11 +7,10 @@ import { useFilters } from "./hooks/useFilters";
 
 
 function App(){
-    const [books] = useState(Book.library);
     // const [listaLectura, setListaLectura] = useState([]);
     
     const {filtradosBooks} = useFilters();
-    const booksFiltrados = filtradosBooks(books);
+    const booksFiltrados = filtradosBooks(Book.library);
     
     return(
         <>
