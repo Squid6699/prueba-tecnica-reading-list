@@ -1,16 +1,12 @@
 import { useContext } from "react";
-import { FiltersContext } from "./../context/filters";
+import { FiltersContext } from "../context/filters";
 
 export function useFilters(){
-    const {filters, setFilters} = useContext(FiltersContext);
+    const context = useContext(FiltersContext);
     
-    const filtradosBooks = (books) => {
-        return books.filter(books => {
-            return(
-                filters.genero === books.book.genre || filters.genero === "all"
-            )
-        }) 
+    if (context === undefined){
+        throw new Error("useContext debe ser usado en un FiltersContextProvider")
     }
-    
-    return {filters, setFilters, filtradosBooks}
+
+    return context;
 }

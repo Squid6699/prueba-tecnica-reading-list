@@ -227,12 +227,10 @@ input[type='radio'] {
   cursor: pointer;
 }
 
-input,
 select {
   display: block;
 }
 
-[type='checkbox'],
 [type='radio'] {
   display: initial;
 }
@@ -363,12 +361,6 @@ input[type='radio'] {
 
 input {
   vertical-align: top;
-}
-
-label {
-  vertical-align: middle;
-  margin-bottom: 4px;
-  display: inline-block;
 }
 
 input:not([type='checkbox']):not([type='radio']),
@@ -913,10 +905,18 @@ header{
 }
 
 .listaLectura{
-  text-align: center;
+  background: #0000;
+  display: none;
+  padding: 32px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 200px;
+
+  /* text-align: center;
   background-color: rgba(255, 0, 0, 0.281);
   border-radius: 10px;
-  border: red solid 3px;
+  border: red solid 3px; */
 }
 
 .listaLectura-grid {
@@ -939,4 +939,16 @@ header{
   height: auto;
   border-radius: 8px;
   margin-bottom: 10px;
+}
+
+.listaLectura-btn{
+  right: 8px;
+  top: 8px;
+  width: 320px;
+  z-index: 999;
+}
+
+.listaLectura-btn ~ input:checked ~ .listaLectura{
+  height: 100%;
+  display: block;
 }

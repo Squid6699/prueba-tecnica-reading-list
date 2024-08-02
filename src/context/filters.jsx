@@ -9,11 +9,20 @@ export function FiltersProvider({children}){
     const [filters, setFilters] = useState({
         genero: "all"
     });
+
+    const filtradosBooks = (books) => {
+        return books.filter(books => {
+            return(
+                filters.genero === books.book.genre || filters.genero === "all"
+            )
+        }) 
+    }
     
     return(
         <FiltersContext.Provider value={{
             filters,
-            setFilters
+            setFilters,
+            filtradosBooks
         }}>{children}
         </FiltersContext.Provider>
     )
