@@ -8,7 +8,6 @@ import { ListaLecturaProvider } from "./context/listaLectura";
 
 function App(){    
     const { books } = useBooks();
-    console.log("a");
     return(
         <>
             <ListaLecturaProvider>
