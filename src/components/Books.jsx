@@ -1,7 +1,14 @@
 import { useListaLectura } from "../hooks/useListaLectura";
+import { useBooks } from "../hooks/useBooks";
 
 function Books({booksFiltrados}){
     const {addListaLectura} = useListaLectura();
+    const {removeBook} = useBooks();
+    
+    const handleAddListaLectura = (book) => {
+        addListaLectura(book);
+        removeBook(book)
+    }
 
     return(
         <main>
@@ -9,7 +16,7 @@ function Books({booksFiltrados}){
                 booksFiltrados.length > 0 ?
                 <ul className="books-grid">
                     {booksFiltrados.map((item, index) => (
-                        <li key={index} className="book-item" onClick={() => addListaLectura(item.book)} >
+                        <li key={index} className="book-item" onClick={() => handleAddListaLectura(item.book)} >
                             <h4> {item.title} </h4>
                             <img className="book-cover" src={item.book.cover} alt={item.book.title}/>
                         </li>

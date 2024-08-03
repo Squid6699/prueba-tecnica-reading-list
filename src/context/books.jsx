@@ -6,10 +6,16 @@ export const BooksContext = createContext();
 export function BooksProvider({children}){
     const [books, setBooks] = useState(Book.library);
 
+    const removeBook = (book) => {
+        const filtrado = books.filter((item) => item.book !== book);
+        setBooks(filtrado);
+    }
+
     return(
         <BooksContext.Provider value={{
             books,
-            setBooks
+            setBooks,
+            removeBook,
         }}>{children}</BooksContext.Provider>
 
     )
