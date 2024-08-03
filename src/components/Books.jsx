@@ -9,7 +9,7 @@ function Books(){
 
     const handleAddListaLectura = (book) => {
         addListaLectura(book);
-        removeBook(book)
+        removeBook(book);
     }
 
     return(

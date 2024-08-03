@@ -3,7 +3,8 @@ const { createContext, useState } = require("react");
 export const ListaLecturaContext = createContext();
 
 export function ListaLecturaProvider({children}){
-    const [listaLectura, setListaLectura] = useState([]);
+    const [listaLectura, setListaLectura] = useState(JSON.parse(localStorage.getItem("listaLectura")) || []);
+    localStorage.setItem("listaLectura", JSON.stringify(listaLectura));
 
     const addListaLectura = (book) => {
         setListaLectura(prevState => [...prevState,{
