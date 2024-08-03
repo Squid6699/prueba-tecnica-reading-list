@@ -2,21 +2,21 @@ import "./App.css"
 import Header from "./components/Header";
 import Books from "./components/Books";
 import ListaLectura from "./components/ListaLectura";
-import { useFilters } from "./hooks/useFilters";
+import { FiltersProvider } from './context/filters';
 import { useBooks } from "./hooks/useBooks";
 import { ListaLecturaProvider } from "./context/listaLectura";
 
 function App(){    
-    const {filtradosBooks} = useFilters();
-    const {books} = useBooks();
-    const booksFiltrados = filtradosBooks(books);
-    
+    const { books } = useBooks();
+    console.log("a");
     return(
         <>
             <ListaLecturaProvider>
-                <Header booksFiltrados = {booksFiltrados}/>
-                <Books booksFiltrados = {booksFiltrados}/>
-                <ListaLectura/>
+                <FiltersProvider books={books}>
+                    <Header />
+                    <Books />
+                    <ListaLectura/>
+                </FiltersProvider>
             </ListaLecturaProvider>
         </>  
     );

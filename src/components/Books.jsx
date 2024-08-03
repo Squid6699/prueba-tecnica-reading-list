@@ -1,10 +1,12 @@
 import { useListaLectura } from "../hooks/useListaLectura";
 import { useBooks } from "../hooks/useBooks";
+import { useFilters } from "../hooks/useFilters";
 
-function Books({booksFiltrados}){
+function Books(){
     const {addListaLectura} = useListaLectura();
     const {removeBook} = useBooks();
-    
+    const {booksFiltrados} = useFilters();
+
     const handleAddListaLectura = (book) => {
         addListaLectura(book);
         removeBook(book)

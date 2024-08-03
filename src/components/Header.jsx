@@ -1,8 +1,10 @@
+import { useFilters } from "../hooks/useFilters";
 import { useListaLectura } from "../hooks/useListaLectura";
 import Filters from "./Filters";
 
-function Header({booksFiltrados}){
+function Header(){
     const {listaLectura} = useListaLectura();
+    const {booksFiltrados} = useFilters();
     return(
         <header>
             <h2>{booksFiltrados.length} LIBROS DISPONIBLES</h2>
