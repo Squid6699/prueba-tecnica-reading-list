@@ -639,12 +639,6 @@ kbd {
   padding: 2px 4px 2px 4px;
 }
 
-img,
-video {
-  max-width: 100%;
-  height: auto;
-}
-
 hr {
   border: none;
   border-top: 1px solid #526980;
@@ -882,10 +876,15 @@ header{
   text-align: center;
 }
 
+img{
+  max-width: 185px;
+  max-height: 278px;
+}
+
 .books-grid {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -898,7 +897,6 @@ header{
 }
 
 .book-cover {
-  max-width: 100%;
   height: auto;
   border-radius: 8px;
   margin-bottom: 10px;
@@ -942,6 +940,7 @@ header{
 }
 
 .listaLectura-btn{
+  position: absolute;
   right: 8px;
   top: 8px;
   width: 320px;
